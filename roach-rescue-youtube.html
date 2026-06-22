@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Save the Roaches of Uganda — Emergency Appeal</title>
+<style>
+  :root{
+    --paper:#f6f3ec;
+    --ink:#1b1a16;
+    --moss:#3a5a40;
+    --moss-deep:#2c4531;
+    --clay:#bc6c25;
+    --rust:#a23b1e;
+    --line:#d9d2c2;
+    --gold:#d4a017;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Iowan Old Style','Palatino Linotype',Georgia,serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:920px;margin:0 auto;padding:0 22px}
+
+  /* top bar */
+  .topbar{border-bottom:1px solid var(--line);background:#fff}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:58px}
+  .brand{font-weight:700;letter-spacing:.02em;font-size:1.05rem;color:var(--moss-deep)}
+  .brand span{color:var(--clay)}
+  .verified{font-family:system-ui,sans-serif;font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);border:1px solid var(--moss);border-radius:999px;padding:4px 10px}
+
+  /* hero */
+  .hero{padding:46px 0 18px}
+  .eyebrow{font-family:system-ui,sans-serif;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--rust);font-weight:600;margin-bottom:14px}
+  h1{font-size:clamp(2.1rem,5.5vw,3.3rem);line-height:1.05;font-weight:700;letter-spacing:-.01em;max-width:14ch}
+  h1 em{font-style:italic;color:var(--moss-deep)}
+  .photo{
+    margin:26px 0 0;
+    height:320px;border-radius:6px;overflow:hidden;position:relative;
+    background:
+      radial-gradient(circle at 30% 30%, #6b4f2a 0%, #3d2c16 70%),
+      var(--moss-deep);
+    display:flex;align-items:center;justify-content:center;
+    border:1px solid var(--line);
+  }
+  .photo .roach{font-size:120px;filter:drop-shadow(0 8px 14px rgba(0,0,0,.4));animation:scuttle 6s ease-in-out infinite}
+  @keyframes scuttle{0%,100%{transform:translateX(-12px) rotate(-3deg)}50%{transform:translateX(12px) rotate(4deg)}}
+  .photo .caption{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.78));color:#f3eede;font-family:system-ui,sans-serif;font-size:.78rem;padding:34px 16px 12px;font-style:italic}
+
+  /* layout */
+  .grid{display:grid;grid-template-columns:1fr 320px;gap:34px;margin-top:40px;align-items:start}
+  @media(max-width:760px){.grid{grid-template-columns:1fr}}
+
+  .lede{font-size:1.18rem;line-height:1.6;margin-bottom:20px}
+  .body p{margin-bottom:16px;font-size:1.02rem}
+  .body h2{font-size:1.4rem;margin:30px 0 12px;color:var(--moss-deep)}
+  .pullquote{border-left:3px solid var(--clay);padding:6px 0 6px 18px;margin:24px 0;font-style:italic;font-size:1.12rem;color:var(--moss-deep)}
+
+  /* donate card */
+  .card{position:sticky;top:18px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:22px;box-shadow:0 1px 0 rgba(0,0,0,.03)}
+  .raised{font-size:2rem;font-weight:700;color:var(--moss-deep);line-height:1}
+  .goal{font-family:system-ui,sans-serif;font-size:.82rem;color:#6a665c;margin-top:4px}
+  .bar{height:10px;background:var(--line);border-radius:999px;margin:14px 0 6px;overflow:hidden}
+  .fill{height:100%;width:71%;background:linear-gradient(90deg,var(--moss),var(--gold));border-radius:999px}
+  .stat{font-family:system-ui,sans-serif;font-size:.8rem;color:#6a665c;display:flex;justify-content:space-between}
+  .btn{display:block;width:100%;text-align:center;background:var(--rust);color:#fff;border:none;font-family:system-ui,sans-serif;font-weight:600;font-size:1rem;padding:14px;border-radius:6px;margin-top:18px;cursor:pointer;transition:background .15s,transform .1s}
+  .btn:hover{background:#b8431f}
+  .btn:active{transform:scale(.98)}
+  .btn.secondary{background:transparent;color:var(--moss-deep);border:1px solid var(--line);margin-top:9px;font-weight:500}
+  .share{font-family:system-ui,sans-serif;font-size:.72rem;text-align:center;color:#9a958a;margin-top:14px;text-transform:uppercase;letter-spacing:.1em}
+
+  /* donor ticker */
+  .donors{margin-top:18px;border-top:1px solid var(--line);padding-top:14px;font-family:system-ui,sans-serif}
+  .donors h4{font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:#9a958a;margin-bottom:10px}
+  .donor{display:flex;justify-content:space-between;font-size:.84rem;padding:5px 0;color:#3a382f}
+  .donor b{color:var(--moss-deep)}
+
+  /* testimonials */
+  .section{border-top:1px solid var(--line);margin-top:46px;padding-top:36px}
+  .section h2{font-size:1.7rem;color:var(--moss-deep);margin-bottom:6px}
+  .section .sub{font-family:system-ui,sans-serif;font-size:.9rem;color:#6a665c;margin-bottom:24px}
+  .vids{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  @media(max-width:620px){.vids{grid-template-columns:1fr}}
+  .vid{border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fff}
+  .slot{aspect-ratio:16/9;background:#211f1a;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#c9c4b6;cursor:pointer;position:relative;transition:background .2s}
+  .slot:hover{background:#2c2922}
+  .play{width:54px;height:54px;border-radius:50%;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.25);margin-bottom:10px}
+  .play::after{content:"";border-left:16px solid #f3eede;border-top:10px solid transparent;border-bottom:10px solid transparent;margin-left:4px}
+  .slot small{font-family:system-ui,sans-serif;font-size:.74rem;letter-spacing:.06em}
+  .vid .meta{padding:12px 14px;font-family:system-ui,sans-serif}
+  .vid .meta b{display:block;font-size:.92rem;color:var(--ink)}
+  .vid .meta span{font-size:.78rem;color:#6a665c}
+  .vid .yt{display:flex;gap:6px;margin-top:10px}
+  .vid .yt input{flex:1;min-width:0;font-family:system-ui,sans-serif;font-size:.78rem;padding:7px 9px;border:1px solid var(--line);border-radius:5px;background:var(--paper);color:var(--ink)}
+  .vid .yt input:focus{outline:none;border-color:var(--moss)}
+  .vid .yt button{font-family:system-ui,sans-serif;font-size:.78rem;font-weight:600;padding:7px 14px;border:none;border-radius:5px;background:var(--moss);color:#fff;cursor:pointer}
+  .vid .yt button:hover{background:var(--moss-deep)}
+  .vid input[type=file]{display:none}
+
+  /* footer */
+  footer{border-top:1px solid var(--line);margin-top:50px;padding:26px 0 40px;font-family:system-ui,sans-serif;font-size:.78rem;color:#9a958a;text-align:center}
+  footer .disclaimer{margin-top:8px;font-style:italic;color:#b3aea2}
+
+  /* modal */
+  .modal{position:fixed;inset:0;background:rgba(20,18,14,.6);display:none;align-items:center;justify-content:center;padding:20px;z-index:50}
+  .modal.open{display:flex}
+  .modal .box{background:var(--paper);border-radius:10px;max-width:440px;padding:30px;text-align:center;border:1px solid var(--line)}
+  .modal .box .big{font-size:60px;margin-bottom:8px}
+  .modal h3{font-size:1.5rem;color:var(--moss-deep);margin-bottom:10px}
+  .modal p{font-size:1rem;margin-bottom:18px}
+  .modal button{background:var(--moss);color:#fff;border:none;font-family:system-ui,sans-serif;font-weight:600;padding:11px 24px;border-radius:6px;cursor:pointer}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="brand">Give<span>Generously</span></div>
+    <div class="verified">✓ Verified Campaign</div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <section class="hero">
+    <div class="eyebrow">Emergency Conservation Appeal · Kampala District</div>
+    <h1>Save the <em>Roaches</em> of Uganda</h1>
+    <div class="photo">
+      <div class="roach">🪳</div>
+      <div class="caption">A displaced cockroach surveys what remains of its habitat. Photo: Field team, undisclosed location.</div>
+    </div>
+  </section>
+
+  <div class="grid">
+    <div class="body">
+      <p class="lede">They have survived 300 million years, two mass extinctions, and every shoe ever thrown. But they have never faced a threat like <strong>indifference</strong>.</p>
+
+      <p>Across Uganda, the common cockroach — nature's most resilient and most misunderstood resident — is being overlooked by every major conservation fund on earth. Pandas get the cameras. Whales get the documentaries. Nobody is standing up for the little guy with six legs and a dream.</p>
+
+      <p>That changes today. The <strong>Roach Resilience Initiative</strong> is mobilizing on the ground to provide shelter, dignity, and a future for thousands of Uganda's most enduring insects.</p>
+
+      <div class="pullquote">"If anyone built this, I'd have no choice. I'd have to donate. It's just who I am." — the man this campaign was lovingly built for</div>
+
+      <h2>Where your money goes</h2>
+      <p>Every dollar funds critical roach infrastructure: artisanal cardboard housing, premium crumb redistribution, and a 24-hour emergency hotline for roaches in crisis. A donation of just <strong>$20,000</strong> fully funds the flagship sanctuary.</p>
+
+      <p>You will not get a tax receipt. You will not get a tote bag. You will get the quiet, lifelong knowledge that when the roaches needed you, <em>you showed up.</em></p>
+    </div>
+
+    <aside class="card">
+      <div class="raised">$14,217</div>
+      <div class="goal">raised of $20,000 goal</div>
+      <div class="bar"><div class="fill"></div></div>
+      <div class="stat"><span>71% funded</span><span>312 donors</span></div>
+      <button class="btn" onclick="openModal()">Donate now</button>
+      <button class="btn secondary" onclick="share()">Share this campaign</button>
+      <div class="share">Donations are not tax-deductible</div>
+
+      <div class="donors">
+        <h4>Recent supporters</h4>
+        <div class="donor"><span>Anonymous</span><b>$500</b></div>
+        <div class="donor"><span>A. Concerned Citizen</span><b>$50</b></div>
+        <div class="donor"><span>Greg (it's the principle)</span><b>$20,000</b></div>
+        <div class="donor"><span>Someone's mentor</span><b>pending…</b></div>
+      </div>
+    </aside>
+  </div>
+
+  <section class="section">
+    <h2>Voices from the movement</h2>
+    <div class="sub">Hear directly from supporters and field volunteers. Paste a YouTube link into any slot to load a testimonial.</div>
+    <div class="vids">
+
+      <div class="vid">
+        <div class="slot">
+          <div class="play"></div>
+          <small>PASTE YOUTUBE LINK BELOW</small>
+        </div>
+        <div class="meta"><b>Your name here</b><span>Lead Roach Advocate</span>
+          <div class="yt"><input type="text" placeholder="https://youtube.com/watch?v=…" onkeydown="if(event.key==='Enter')loadYT(this)"><button onclick="loadYT(this.previousElementSibling)">Load</button></div>
+        </div>
+      </div>
+
+      <div class="vid">
+        <div class="slot">
+          <div class="play"></div>
+          <small>PASTE YOUTUBE LINK BELOW</small>
+        </div>
+        <div class="meta"><b>Volunteer #2</b><span>Crumb Logistics Coordinator</span>
+          <div class="yt"><input type="text" placeholder="https://youtube.com/watch?v=…" onkeydown="if(event.key==='Enter')loadYT(this)"><button onclick="loadYT(this.previousElementSibling)">Load</button></div>
+        </div>
+      </div>
+
+      <div class="vid">
+        <div class="slot">
+          <div class="play"></div>
+          <small>PASTE YOUTUBE LINK BELOW</small>
+        </div>
+        <div class="meta"><b>Volunteer #3</b><span>Director of Scuttling</span>
+          <div class="yt"><input type="text" placeholder="https://youtube.com/watch?v=…" onkeydown="if(event.key==='Enter')loadYT(this)"><button onclick="loadYT(this.previousElementSibling)">Load</button></div>
+        </div>
+      </div>
+
+      <div class="vid">
+        <div class="slot">
+          <div class="play"></div>
+          <small>PASTE YOUTUBE LINK BELOW</small>
+        </div>
+        <div class="meta"><b>Volunteer #4</b><span>Survivor &amp; Spokesroach</span>
+          <div class="yt"><input type="text" placeholder="https://youtube.com/watch?v=…" onkeydown="if(event.key==='Enter')loadYT(this)"><button onclick="loadYT(this.previousElementSibling)">Load</button></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    GiveGenerously™ · A registered nothing · Kampala / Nowhere
+    <div class="disclaimer">This is a parody campaign created as a joke. It collects no money, helps no roaches, and is not affiliated with any real platform or charity.</div>
+  </footer>
+</div>
+
+<div class="modal" id="modal">
+  <div class="box">
+    <div class="big">🪳</div>
+    <h3>Gotcha.</h3>
+    <p>There is no roach sanctuary. There is only this prank, and the fact that you almost reached for your wallet. The roaches thank you anyway.</p>
+    <button onclick="closeModal()">I have been bamboozled</button>
+  </div>
+</div>
+
+<script>
+  function openModal(){document.getElementById('modal').classList.add('open')}
+  function closeModal(){document.getElementById('modal').classList.remove('open')}
+  function share(){
+    const t="I'm supporting the Roaches of Uganda. You should too.";
+    if(navigator.share){navigator.share({title:'Save the Roaches',text:t,url:location.href}).catch(()=>{})}
+    else{navigator.clipboard?.writeText(location.href);alert('Link copied. Spread the word.')}
+  }
+  function ytId(url){
+    const m=url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/|v\/)|youtube\.com\/watch\?.*&v=)([A-Za-z0-9_-]{11})/);
+    return m?m[1]:null;
+  }
+  function loadYT(input){
+    const id=ytId(input.value.trim());
+    if(!id){input.style.borderColor='#a23b1e';input.placeholder='Hmm, not a valid YouTube link';input.value='';return;}
+    const vid=input.closest('.vid');
+    const slot=vid.querySelector('.slot');
+    const iframe=document.createElement('iframe');
+    iframe.src='https://www.youtube.com/embed/'+id;
+    iframe.style.cssText='width:100%;height:100%;border:0';
+    iframe.allow='accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture';
+    iframe.allowFullscreen=true;
+    slot.replaceWith(iframe);
+    input.closest('.yt').style.display='none';
+  }
+  document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal()});
+</script>
+</body>
+</html>
